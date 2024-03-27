@@ -1,0 +1,27 @@
+<p-dialog [header]="header" [(visible)]="display" [modal]="true" [closable]="false">
+  <div class="column form-wrapper gap-1" [formGroup]="productForm">
+    <div class="row gap-05">
+      <span class="price-label">Name: </span>
+      <input type="text" formControlName="name">
+    </div>
+    <div class="row gap-05">
+      <span class="price-label">Image: </span>
+      <input type="text" formControlName="image">
+    </div>
+    <div class="row gap-05">
+      <span class="price-label">Price: </span>
+      <input type="text" formControlName="price">
+    </div>
+    <div class="row gap-05">
+      <span class="price-label">Rating: </span>
+      <p-rating [readonly]="false" [iconCancelClass]="'hidden'" [(ngModel)]="product.rating"
+        [ngModelOptions]="{standalone: true}"></p-rating>
+    </div>
+
+  </div>
+  <p-footer>
+    <button type="button" pButton icon="pi pi-check" (click)="onConfirm()" label="Confirm"
+      [class.disabled]="!productForm.valid"></button>
+    <button type="button" pButton icon="pi pi-items" (click)="onCancel()" label="Cancel"></button>
+  </p-footer>
+</p-dialog>
